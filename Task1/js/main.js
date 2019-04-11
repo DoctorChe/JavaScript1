@@ -5,12 +5,13 @@ var chess = {
         block.insertAdjacentHTML('beforeend', this.getBoard());
     },
     getBoard(){
+        var numbers = "87654321";
         var symbols = "ABCDEFGH";
         var board = "";
-        board += "<ul class='numbers-line'>";
-        board += "<li class='symbol'></li>";
-        for (var i = 1; i < 9; i++) {
-            board += `<li>${i}</li>`
+        board += "<ul class='symbol'>";
+        board += "<li class='number'></li>";
+        for (var i = 0; i < 8; i++) {
+            board += `<li>${symbols[i]}</li>`
         }
         board += "</ul>";
         for (var i = 1; i < 9; i++) {
@@ -18,13 +19,13 @@ var chess = {
         }
         for (var k = 0; k < 8; k+=2) {
             board += "<ul class='odd-line'>";
-            board += `<li class='symbol'>${symbols[k]}</li>`;
+            board += `<li class='number'>${numbers[k]}</li>`;
             for (var i = 0; i < 8; i++) {
                 board += "<li></li>"
             }
             board += "</ul>";
             board += "<ul class='even-line'>";
-            board += `<li class='symbol'>${symbols[k+1]}</li>`;
+            board += `<li class='number'>${numbers[k+1]}</li>`;
             for (var i = 0; i < 8; i++) {
                 board += "<li></li>"
             }

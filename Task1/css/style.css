@@ -6,7 +6,7 @@
 .chess ul {
     list-style: none;
 }
-.chess li.symbol{
+.chess li.number{
     border: none;
     text-align: right;
     padding: 40px 0 0 0;
@@ -24,7 +24,7 @@
 .chess ul.even-line li:nth-child(n+2):nth-child(-n+9):nth-child(even) {
     background: #ddd;
 }
-.chess .numbers-line li{
+.chess .symbol li{
     border: none;
     text-align: center;
     margin: 0;
