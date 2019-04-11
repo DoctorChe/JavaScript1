@@ -1,0 +1,32 @@
+.chess {
+    width: 900px;
+    margin: 0 auto;    
+    padding: 0;
+}
+.chess ul {
+    list-style: none;
+}
+.chess li.symbol{
+    border: none;
+    text-align: right;
+    padding: 40px 0 0 0;
+}
+.chess li {
+    float: left;
+    width: 94px;   
+    border: 1px solid #ddd;
+    margin: -1px -1px 0 0;
+    padding: 94px 0 0 0;
+}
+.chess ul.odd-line li:nth-child(n+2):nth-child(-n+9):nth-child(odd) {
+    background: #ddd;
+}
+.chess ul.even-line li:nth-child(n+2):nth-child(-n+9):nth-child(even) {
+    background: #ddd;
+}
+.chess .numbers-line li{
+    border: none;
+    text-align: center;
+    margin: 0;
+    padding: 10px 0 0 0;
+}
