@@ -1,0 +1,26 @@
+body{
+    font-family: 'SF Pro Display', sans-serif;
+}
+.products{
+    column-gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    grid-template-rows: 1fr;
+    padding: 40px 80px;
+    justify-content: space-between;
+}
+p {
+    margin: 0 0 5px 0;
+}
+.product-item{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+.desc {
+    border: 1px solid #c0c0c040;
+    padding: 10px
+}
