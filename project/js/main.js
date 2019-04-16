@@ -15,15 +15,15 @@ var catalog = {
         };
     },
     getMarkup(product){
-        return `<div class="product-item"">
-                    <img src="${this.defaultImg}" alt="">
+        return `<div class="product-item" data-id="${product.id}" data-title="${product.title}" data-price="${product.price}">
+                    <img src="${this.defaultImg}" alt="" class="product-img">
                     <div class="desc">
                         <h3>${product.title}</h3>
                         <p>${product.price} руб</p>
-                        <button class="buy-btn" data-id="${product.id}" data-title="${product.title}" data-price="${product.price}">Купить</button>
+                        <button class="buy-btn">Купить</button>
                     </div>
                 </div>`
-    },
+    }
 };
 
 var cart = {
@@ -79,9 +79,9 @@ var cart = {
         buyButtons.forEach(function(btn) {
             btn.addEventListener('click', function(e) {
                 var item = {
-                    id: +e.target.dataset.id,
-                    title: e.target.dataset.title,
-                    price: +e.target.dataset.price,
+                    id: +e.target.parentElement.parentElement.dataset.id,
+                    title: e.target.parentElement.parentElement.dataset.title,
+                    price: +e.target.parentElement.parentElement.dataset.price,
                 };
                 that.addToCart(item);
             })
@@ -105,5 +105,41 @@ var cart = {
     }
 };
 
+var modal = {
+    imageBlock: '.modal-guts',
+    image: {src: 'https://via.placeholder.com/560x360?text=No+Product', alt: 'Some img'},
+    controller(){
+        var that = this;
+        var modal = document.querySelector(".modal"),
+            modalOverlay = document.querySelector(".modal-overlay"),
+            closeButton = document.querySelector(".close-btn");
+        closeButton.addEventListener("click", function() {
+            modal.classList.toggle("closed");
+            modalOverlay.classList.toggle("closed");
+        });
+
+        document.querySelector('.products').addEventListener('click', function(e){
+            var text = e.target.parentElement.dataset.title;
+            if(e.target.tagName === 'IMG'){
+                modal.classList.toggle("closed");
+                modalOverlay.classList.toggle("closed");
+
+                that.image.src = `https://via.placeholder.com/560x360?text=${text}`;
+                that.render();
+            }
+        })
+    },
+    createImg(img){
+        return `<img src="${img.src}" alt="${img.alt}">`
+    },
+    render(){
+        document.querySelector(".modal-guts").innerHTML = this.createImg(this.image)
+    },
+    init() {
+        this.controller();
+    }
+}
+
 catalog.render();
 cart.render();
+modal.init();

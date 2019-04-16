@@ -101,7 +101,7 @@ header .cart:hover .cart-block{
     transition: all ease-in-out .4s;
     cursor: pointer;
 }
-.buy-btn:hover, .del-btn:hover{
+.buy-btn:hover, .del-btn:hover, .modal .close-btn:hover{
     background-color: #fafafa;
     color: #2f2a2d;
     border: 1px solid #2f2a2d;
@@ -116,4 +116,70 @@ header .cart:hover .cart-block{
 }
 .total{
     font-weight: bold;
+}
+
+.modal {
+  /* Не обязательно  block */
+  display: block;
+  
+ 
+  width: 600px;
+  max-width: 100%;
+  
+  height: 400px;
+  max-height: 100%;
+  
+  position: fixed;
+  
+  z-index: 100;
+  
+  left: 50%;
+  top: 50%;
+  
+  /* Центруем */
+  transform: translate(-50%, -50%);
+  
+
+  
+  background: white;
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+}
+.closed {
+  display: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  
+  background: rgba(0, 0, 0, 0.6);
+}
+.modal-guts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 20px;
+}
+
+.modal .close-btn {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 20px;
+  
+  border: 0;
+  background: #2f2a2d;
+  color: #fafafa;
+  padding: 5px 10px;
+  font-size: 1.3rem;
+
+  border-radius: 5px;
+  transition: all ease-in-out .4s;
 }
